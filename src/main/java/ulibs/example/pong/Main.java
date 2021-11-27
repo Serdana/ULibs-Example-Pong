@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import main.java.ulibs.common.utils.Console.WarningType;
 import main.java.ulibs.engine.ClientBase;
+import main.java.ulibs.engine.input.EnumKeyInput;
+import main.java.ulibs.engine.input.EnumMouseInput;
 import main.java.ulibs.engine.input.IInputHandler;
 import main.java.ulibs.engine.input.IScrollHandler;
-import main.java.ulibs.engine.input.KeyInput;
-import main.java.ulibs.engine.input.MouseInput;
 import main.java.ulibs.example.pong.render.BackgroundRenderer;
 import main.java.ulibs.example.pong.render.DebugHud;
 import main.java.ulibs.example.pong.render.GameRenderer;
@@ -50,12 +50,12 @@ public class Main extends ClientBase {
 	}
 	
 	@Override
-	protected IInputHandler<KeyInput> setKeyHandler() {
+	protected IInputHandler<EnumKeyInput> setKeyHandler() {
 		return new KeyHandler();
 	}
 	
 	@Override
-	protected IInputHandler<MouseInput> setMouseHandler() {
+	protected IInputHandler<EnumMouseInput> setMouseHandler() {
 		return null;
 	}
 	

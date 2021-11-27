@@ -38,7 +38,7 @@ public class GameRenderer implements IRenderer {
 		rightPaddleVA.addVerticesWithDefaults(QuadData.createVertex(new Vec2f(), ZConstant.Z_WORLD_ENTITY, Paddle.SIZE));
 		rightPaddleVA.setup();
 		
-		ballTex = new Texture(GetResource.getTexture("ball"));
+		ballTex = new Texture(GetResource.getTexture("ball"), true);
 		paddleTex = new Texture(GetResource.getTexture("paddle"));
 		
 		Fonts.bind(Fonts.FONT_16);
