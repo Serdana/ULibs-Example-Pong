@@ -1,7 +1,5 @@
 package main.java.ulibs.example.pong;
 
-import java.util.ArrayList;
-
 import main.java.ulibs.common.utils.Console.WarningType;
 import main.java.ulibs.engine.ClientBase;
 import main.java.ulibs.engine.input.EnumKeyInput;
@@ -14,7 +12,6 @@ import main.java.ulibs.example.pong.render.GameRenderer;
 import main.java.ulibs.example.pong.util.Fonts;
 import main.java.ulibs.example.pong.util.GameHandler;
 import main.java.ulibs.example.pong.util.KeyHandler;
-import main.java.ulibs.gl.gl.Shader;
 
 public class Main extends ClientBase {
 	public static Main main;
@@ -24,7 +21,7 @@ public class Main extends ClientBase {
 	}
 	
 	protected Main() {
-		super("Pong", "ulibs/example/pong", 960, 540, false, 3, new WarningType[0], new ArrayList<Shader>());
+		super("Pong", "ulibs/example/pong", 960, 540, false, 3, new WarningType[0], null);
 	}
 	
 	@Override
@@ -62,6 +59,11 @@ public class Main extends ClientBase {
 	@Override
 	protected IScrollHandler setScrollHandler() {
 		return null;
+	}
+	
+	@Override
+	protected EnumViewportResizeType getViewportResizeType() {
+		return EnumViewportResizeType.scale;
 	}
 	
 	public static Main getMain() {
