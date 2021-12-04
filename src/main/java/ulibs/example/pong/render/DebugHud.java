@@ -35,4 +35,9 @@ public class DebugHud implements IRenderer {
 		Shaders.Hud().setColor(Color.WHITE);
 		GLH.unbindShader();
 	}
+	
+	@Override
+	public void onResize() {
+		
+	}
 }

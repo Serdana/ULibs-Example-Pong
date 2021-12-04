@@ -74,4 +74,9 @@ public class GameRenderer implements IRenderer {
 		scoreVA.setNewValues(Fonts.FONT_16, score, MathH.floor(Main.getHudWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, score) / 2), 0, ZConstant.Z_HUD_DETAIL_0);
 		scoreVA.setup();
 	}
+	
+	@Override
+	public void onResize() {
+		
+	}
 }

@@ -47,6 +47,11 @@ public class Main extends ClientBase {
 	}
 	
 	@Override
+	protected void onResize() {
+		
+	}
+	
+	@Override
 	protected IInputHandler<EnumKeyInput> setKeyHandler() {
 		return new KeyHandler();
 	}

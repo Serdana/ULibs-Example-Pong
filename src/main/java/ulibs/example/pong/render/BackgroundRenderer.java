@@ -29,4 +29,9 @@ public class BackgroundRenderer implements IRenderer {
 		GLH.unbindTexture();
 		GLH.unbindShader();
 	}
+	
+	@Override
+	public void onResize() {
+		
+	}
 }
