@@ -49,15 +49,15 @@ public class GameRenderer implements IRenderer {
 	@Override
 	public void renderPre() {
 		Shaders.MoveableObject().bind();
-		Shaders.MoveableObject().setTransformMatrix(Matrix4f.translate(GameHandler.BALL.pos));
+		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.BALL.pos));
 		ballTex.bind();
 		
 		ballVA.drawOnce();
 		
 		paddleTex.bind();
-		Shaders.MoveableObject().setTransformMatrix(Matrix4f.translate(GameHandler.LEFT_PADDLE.pos));
+		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.LEFT_PADDLE.pos));
 		leftPaddleVA.drawOnce();
-		Shaders.MoveableObject().setTransformMatrix(Matrix4f.translate(GameHandler.RIGHT_PADDLE.pos));
+		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.RIGHT_PADDLE.pos));
 		rightPaddleVA.drawOnce();
 		
 		Shaders.MoveableObject().setTransformMatrix(Matrix4f.identity());
