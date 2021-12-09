@@ -52,6 +52,11 @@ public class Main extends ClientBase {
 	}
 	
 	@Override
+	protected void onMouseMoved() {
+		
+	}
+	
+	@Override
 	protected IInputHandler<EnumKeyInput> setKeyHandler() {
 		return new KeyHandler();
 	}
