@@ -39,7 +39,7 @@ public class Ball implements ITickable {
 					moveDir.set(MathH.randomBoolean() ? -0.2f : 0.2f, MathH.randomBoolean() ? -0.2f : 0.2f);
 					isDead = false;
 				}
-			}, TimerType.second, 2);
+			}, TimerType.second, 2, false);
 			
 			isDead = true;
 			return;
