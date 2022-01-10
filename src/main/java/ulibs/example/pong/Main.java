@@ -6,6 +6,8 @@ import main.java.ulibs.engine.input.EnumKeyInput;
 import main.java.ulibs.engine.input.EnumMouseInput;
 import main.java.ulibs.engine.input.IInputHandler;
 import main.java.ulibs.engine.input.IScrollHandler;
+import main.java.ulibs.engine.utils.ResizeHandler;
+import main.java.ulibs.engine.utils.ResizeHandlerScale;
 import main.java.ulibs.example.pong.render.BackgroundRenderer;
 import main.java.ulibs.example.pong.render.DebugHud;
 import main.java.ulibs.example.pong.render.GameRenderer;
@@ -47,11 +49,6 @@ public class Main extends ClientBase {
 	}
 	
 	@Override
-	protected void onResize() {
-		
-	}
-	
-	@Override
 	protected void onMouseMoved() {
 		
 	}
@@ -72,8 +69,8 @@ public class Main extends ClientBase {
 	}
 	
 	@Override
-	protected EnumViewportResizeType getViewportResizeType() {
-		return EnumViewportResizeType.scale;
+	protected ResizeHandler setResizeHandler() {
+		return new ResizeHandlerScale();
 	}
 	
 	public static Main getMain() {

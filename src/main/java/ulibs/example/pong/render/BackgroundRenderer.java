@@ -15,7 +15,7 @@ public class BackgroundRenderer implements IRenderer {
 	
 	@Override
 	public void setupGL() {
-		bg.addVerticesWithDefaults(QuadData.createVertex(0, 0, ZConstant.Z_BACKGROUND, ClientBase.getHudWidth(), ClientBase.getHudHeight()));
+		bg.addVerticesWithDefaults(QuadData.createVertex(0, 0, ZConstant.Z_BACKGROUND, ClientBase.getDefaultWidth(), ClientBase.getDefaultHeight()));
 		bg.setup();
 	}
 	

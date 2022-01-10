@@ -42,7 +42,7 @@ public class GameRenderer implements IRenderer {
 		paddleTex = new Texture(GetResource.getTexture("paddle"));
 		
 		Fonts.bind(Fonts.FONT_16);
-		scoreVA = Fonts.getFontVertexArrayFromString("0:0", MathH.floor(Main.getHudWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, "0:0") / 2), 0, ZConstant.Z_HUD_DETAIL_0);
+		scoreVA = Fonts.getFontVertexArrayFromString("0:0", MathH.floor(Main.getDefaultWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, "0:0") / 2), 0, ZConstant.Z_HUD_DETAIL_0);
 		scoreVA.setup();
 	}
 	
@@ -71,7 +71,7 @@ public class GameRenderer implements IRenderer {
 	
 	public static void redoScore() {
 		String score = GameHandler.getLeftScore() + ":" + GameHandler.getRightScore();
-		scoreVA.setNewValues(Fonts.FONT_16, score, MathH.floor(Main.getHudWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, score) / 2), 0, ZConstant.Z_HUD_DETAIL_0);
+		scoreVA.setNewValues(Fonts.FONT_16, score, MathH.floor(Main.getDefaultWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, score) / 2), 0, ZConstant.Z_HUD_DETAIL_0);
 		scoreVA.setup();
 	}
 	
