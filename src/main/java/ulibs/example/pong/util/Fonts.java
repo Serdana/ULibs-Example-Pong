@@ -6,9 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -16,9 +18,10 @@ import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.utils.Console;
 import main.java.ulibs.common.utils.Console.WarningType;
 import main.java.ulibs.example.pong.render.gl.FontVertexArray;
-import main.java.ulibs.gl.gl.QuadData;
 import main.java.ulibs.gl.gl.Texture;
 import main.java.ulibs.gl.gl.ZConstant;
+import main.java.ulibs.gl.gl.geometry.GeoData;
+import main.java.ulibs.gl.gl.geometry.Quad;
 
 public class Fonts {
 	private static final Map<Font, GlyphWrapper> FONT_CHAR_MAP = new HashMap<Font, GlyphWrapper>();
@@ -36,7 +39,7 @@ public class Fonts {
 		boundFont = font;
 	}
 	
-	public static QuadData getQuadDataFromString(String s, int x, int y, ZConstant z) {
+	public static List<GeoData> getQuadDataFromString(String s, int x, int y, ZConstant z) {
 		if (boundFont == null) {
 			Console.print(WarningType.Error, "Font was not bound!");
 			return null;
@@ -48,7 +51,7 @@ public class Fonts {
 		float totalSize = cellSize * 16;
 		
 		GlyphWrapper glw = FONT_CHAR_MAP.get(boundFont);
-		QuadData data = new QuadData();
+		List<GeoData> data = new ArrayList<GeoData>();
 		
 		float curX = charSpacing;
 		for (char c : s.toCharArray()) {
@@ -59,13 +62,10 @@ public class Fonts {
 			
 			Glyph gl = glw.map.get(c);
 			float ymod = (c == '-' || c == '\'') ? -gl.h * 2 : (c == 'g' || c == 'j' || c == 'p' || c == 'q' || c == 'y') ? gl.h / 3.8f : 0;
-			
-			float[] vertices = QuadData.createVertex(x + curX, y - (gl.h) + (realFontSize) + ymod, z, gl.w, gl.h);
-			
-			curX += (gl.w) + charSpacing;
-			
 			float xx = (gl.x / totalSize), yy = -((gl.y + cellSize) / totalSize), ww = gl.w / totalSize, hh = (gl.h / totalSize);
-			data.addAll(vertices, QuadData.DEFAULT_INDICES, new float[] { xx, yy + hh, xx, yy, xx + ww, yy, xx + ww, yy + hh });
+			
+			data.add(new Quad(x + curX, y - (gl.h) + (realFontSize) + ymod, gl.w, gl.h, z, new float[] { xx, yy + hh, xx, yy, xx + ww, yy, xx + ww, yy + hh }));
+			curX += (gl.w) + charSpacing;
 		}
 		
 		return data;
@@ -77,10 +77,7 @@ public class Fonts {
 			return null;
 		}
 		
-		GlyphWrapper glw = FONT_CHAR_MAP.get(boundFont);
-		FontVertexArray fva = new FontVertexArray(glw.tex).addAll(getQuadDataFromString(s, x, y, z));
-		
-		return fva;
+		return new FontVertexArray(FONT_CHAR_MAP.get(boundFont).tex).set(getQuadDataFromString(s, x, y, z));
 	}
 	
 	private static void setupFont(Font f) {

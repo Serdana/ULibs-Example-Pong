@@ -12,10 +12,10 @@ import main.java.ulibs.example.pong.util.Fonts;
 import main.java.ulibs.example.pong.util.GameHandler;
 import main.java.ulibs.example.pong.util.Paddle;
 import main.java.ulibs.gl.gl.GLH;
-import main.java.ulibs.gl.gl.QuadData;
 import main.java.ulibs.gl.gl.Texture;
 import main.java.ulibs.gl.gl.VertexArray;
 import main.java.ulibs.gl.gl.ZConstant;
+import main.java.ulibs.gl.gl.geometry.Quad;
 import main.java.ulibs.gl.math.Matrix4f;
 
 public class GameRenderer implements IRenderer {
@@ -29,13 +29,13 @@ public class GameRenderer implements IRenderer {
 	
 	@Override
 	public void setupGL() {
-		ballVA.addVerticesWithDefaults(QuadData.createVertex(new Vec2f(), ZConstant.Z_WORLD_ENTITY, Ball.SIZE));
+		ballVA.add(new Quad(new Vec2f(), Ball.SIZE, ZConstant.Z_WORLD_ENTITY));
 		ballVA.setup();
 		
-		leftPaddleVA.addVerticesWithDefaults(QuadData.createVertex(new Vec2f(), ZConstant.Z_WORLD_ENTITY, Paddle.SIZE));
+		leftPaddleVA.add(new Quad(new Vec2f(), Paddle.SIZE, ZConstant.Z_WORLD_ENTITY));
 		leftPaddleVA.setup();
 		
-		rightPaddleVA.addVerticesWithDefaults(QuadData.createVertex(new Vec2f(), ZConstant.Z_WORLD_ENTITY, Paddle.SIZE));
+		rightPaddleVA.add(new Quad(new Vec2f(), Paddle.SIZE, ZConstant.Z_WORLD_ENTITY));
 		rightPaddleVA.setup();
 		
 		ballTex = new Texture(GetResource.getTexture("ball"), true);

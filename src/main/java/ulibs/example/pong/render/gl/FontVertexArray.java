@@ -17,7 +17,7 @@ public class FontVertexArray extends VertexArray {
 	
 	public void setNewValues(Font f, String s, int x, int y, ZConstant z) {
 		Fonts.bind(f);
-		setAll(Fonts.getQuadDataFromString(s, x, y, z));
+		set(Fonts.getQuadDataFromString(s, x, y, z));
 	}
 	
 	@Override

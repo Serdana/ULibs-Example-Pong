@@ -6,16 +6,16 @@ import main.java.ulibs.engine.ClientBase;
 import main.java.ulibs.engine.init.Shaders;
 import main.java.ulibs.engine.render.IRenderer;
 import main.java.ulibs.gl.gl.GLH;
-import main.java.ulibs.gl.gl.QuadData;
 import main.java.ulibs.gl.gl.VertexArray;
 import main.java.ulibs.gl.gl.ZConstant;
+import main.java.ulibs.gl.gl.geometry.Quad;
 
 public class BackgroundRenderer implements IRenderer {
 	private VertexArray bg = new VertexArray();
 	
 	@Override
 	public void setupGL() {
-		bg.addVerticesWithDefaults(QuadData.createVertex(0, 0, ZConstant.Z_BACKGROUND, ClientBase.getDefaultWidth(), ClientBase.getDefaultHeight()));
+		bg.add(new Quad(0, 0, ClientBase.getDefaultWidth(), ClientBase.getDefaultHeight(), ZConstant.Z_BACKGROUND));
 		bg.setup();
 	}
 	
