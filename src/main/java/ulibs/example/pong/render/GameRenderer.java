@@ -29,15 +29,20 @@ public class GameRenderer implements IRenderer {
 	
 	@Override
 	public void setupGL() {
+		// Creates a VertexArray for our ball
 		ballVA.add(new Quad(new Vec2f(), Ball.SIZE, ZConstant.Z_WORLD_ENTITY));
 		ballVA.setup();
 		
+		// Creates a VertexArray for the left paddle
 		leftPaddleVA.add(new Quad(new Vec2f(), Paddle.SIZE, ZConstant.Z_WORLD_ENTITY));
 		leftPaddleVA.setup();
 		
+
+		// Creates a VertexArray for the right paddle
 		rightPaddleVA.add(new Quad(new Vec2f(), Paddle.SIZE, ZConstant.Z_WORLD_ENTITY));
 		rightPaddleVA.setup();
 		
+		// Loads our textures
 		ballTex = new Texture(GetResource.getTexture("ball"), true);
 		paddleTex = new Texture(GetResource.getTexture("paddle"));
 		
@@ -48,25 +53,26 @@ public class GameRenderer implements IRenderer {
 	
 	@Override
 	public void renderPre() {
+		// Bind our shader then set it's transform matrix to our ball's position
 		Shaders.MoveableObject().bind();
 		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.BALL.pos));
-		ballTex.bind();
+		ballTex.bind(); // Bind our ball's texture
 		
-		ballVA.drawOnce();
+		ballVA.drawOnce(); // Draw our ball
 		
-		paddleTex.bind();
-		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.LEFT_PADDLE.pos));
-		leftPaddleVA.drawOnce();
-		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.RIGHT_PADDLE.pos));
-		rightPaddleVA.drawOnce();
+		paddleTex.bind(); // Bind our paddle's texture
+		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.LEFT_PADDLE.pos)); // Set the shader's transform matrix to the left paddle's position
+		leftPaddleVA.drawOnce(); // Draw our left paddle
+		Shaders.MoveableObject().setTransformMatrix(Matrix4f.newTranslate(GameHandler.RIGHT_PADDLE.pos)); // Set the shader's transform matrix to the right paddle's position
+		rightPaddleVA.drawOnce(); // Draw our right paddle
 		
-		Shaders.MoveableObject().setTransformMatrix(Matrix4f.identity());
-		GLH.unbindTexture();
-		Shaders.Hud().bind();
+		Shaders.MoveableObject().setTransformMatrix(Matrix4f.identity()); // Reset our shader's transform matrix
+		GLH.unbindTexture(); // Unbinds the current texture
+		Shaders.Hud().bind(); // Binds a different shader
 		
-		scoreVA.drawOnce();
+		scoreVA.drawOnce(); // Draws the score
 		
-		GLH.unbindShader();
+		GLH.unbindShader(); // Unbinds the current shader
 	}
 	
 	public static void redoScore() {

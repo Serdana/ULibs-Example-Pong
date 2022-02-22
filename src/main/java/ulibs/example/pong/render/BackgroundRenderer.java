@@ -15,19 +15,19 @@ public class BackgroundRenderer implements IRenderer {
 	
 	@Override
 	public void setupGL() {
+		// Creates a basic VertexArray with a single Quad
 		bg.add(new Quad(0, 0, ClientBase.getDefaultWidth(), ClientBase.getDefaultHeight(), ZConstant.Z_BACKGROUND));
 		bg.setup();
 	}
 	
 	@Override
 	public void renderPre() {
-		Shaders.HudTextureless().bind();
-		Shaders.HudTextureless().setColor(Color.DARK_GRAY);
+		Shaders.HudTextureless().bind();                    // Binds the shader
+		Shaders.HudTextureless().setColor(Color.DARK_GRAY); // Sets the shader's color
 		
-		bg.drawOnce();
+		bg.drawOnce(); // Draws our VertexArray
 		
-		GLH.unbindTexture();
-		GLH.unbindShader();
+		GLH.unbindShader(); // Unbinds the shader
 	}
 	
 	@Override

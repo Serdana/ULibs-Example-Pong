@@ -5,22 +5,22 @@ import main.java.ulibs.example.pong.render.GameRenderer;
 public class GameHandler {
 	private static int leftScore, rightScore;
 	
-	public static final Ball BALL = new Ball();
-	public static final Paddle LEFT_PADDLE = new Paddle(true);
-	public static final Paddle RIGHT_PADDLE = new Paddle(false);
+	public static final Ball BALL = new Ball(); // Creates our ball
+	public static final Paddle LEFT_PADDLE = new Paddle(true); // Creates the left paddle
+	public static final Paddle RIGHT_PADDLE = new Paddle(false); // Creates the right paddle
 	
-	public static void tick() {
+	public static void tick() { // Runs all of our object's tick methods
 		BALL.tick();
 		LEFT_PADDLE.tick();
 		RIGHT_PADDLE.tick();
 	}
 	
-	public static void increaseLeftScore() {
+	public static void increaseLeftScore() { // Increases the left player's score
 		leftScore++;
 		GameRenderer.redoScore();
 	}
 	
-	public static void increaseRightScore() {
+	public static void increaseRightScore() { // Increases the right player's score
 		rightScore++;
 		GameRenderer.redoScore();
 	}

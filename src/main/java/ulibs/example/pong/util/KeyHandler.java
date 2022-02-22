@@ -7,7 +7,8 @@ public class KeyHandler implements IInputHandler<EnumKeyInput> {
 	private static final boolean[] LEFT_INPUT = new boolean[] { false, false }, RIGHT_INPUT = new boolean[] { false, false };
 	
 	@Override
-	public void onPress(EnumKeyInput input) {
+	public void onPress(EnumKeyInput input) { // Runs whenever a key is pressed. 'input' will be the key that was pressed
+		// Stores the inputs we care about into an array
 		if (input == EnumKeyInput.KEY_W) {
 			LEFT_INPUT[0] = true;
 		} else if (input == EnumKeyInput.KEY_S) {
@@ -20,7 +21,8 @@ public class KeyHandler implements IInputHandler<EnumKeyInput> {
 	}
 	
 	@Override
-	public void onRelease(EnumKeyInput input) {
+	public void onRelease(EnumKeyInput input) { // Runs whenever a key is released. 'input' will be the key that was released
+		// Stores the inputs we care about into an array
 		if (input == EnumKeyInput.KEY_W) {
 			LEFT_INPUT[0] = false;
 		} else if (input == EnumKeyInput.KEY_S) {
