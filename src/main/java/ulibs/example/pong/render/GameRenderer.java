@@ -37,7 +37,6 @@ public class GameRenderer implements IRenderer {
 		leftPaddleVA.add(new Quad(new Vec2f(), Paddle.SIZE, ZConstant.Z_WORLD_ENTITY));
 		leftPaddleVA.setup();
 		
-
 		// Creates a VertexArray for the right paddle
 		rightPaddleVA.add(new Quad(new Vec2f(), Paddle.SIZE, ZConstant.Z_WORLD_ENTITY));
 		rightPaddleVA.setup();
