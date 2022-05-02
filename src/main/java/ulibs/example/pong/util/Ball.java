@@ -3,7 +3,6 @@ package main.java.ulibs.example.pong.util;
 import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.math.Vec2f;
 import main.java.ulibs.engine.utils.HitBox;
-import main.java.ulibs.engine.utils.IRunnable;
 import main.java.ulibs.engine.utils.ITickable;
 import main.java.ulibs.engine.utils.Timer.TimerType;
 import main.java.ulibs.example.pong.Main;
@@ -26,7 +25,7 @@ public class Ball implements ITickable {
 		}
 		
 		if ((pos.getX() + SIZE.getX() <= 0 || pos.getX() >= 16) && !isDead) { // Checks if the position is off screen & not dead
-			Main.getMain().addTimer(new IRunnable() { // If the ball is off screen create a timed event
+			Main.getMain().addTimer(new Runnable() { // If the ball is off screen create a timed event
 				@Override
 				public void run() {
 					if (pos.getX() < 0) { // Check who failed to hit the ball and give the other player score
