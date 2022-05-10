@@ -2,12 +2,12 @@ package main.java.ulibs.example.pong;
 
 import main.java.ulibs.common.utils.Console.WarningType;
 import main.java.ulibs.engine.ClientBase;
+import main.java.ulibs.engine.client.ResizeHandler;
+import main.java.ulibs.engine.client.ResizeHandlerScale;
 import main.java.ulibs.engine.input.EnumKeyInput;
 import main.java.ulibs.engine.input.EnumMouseInput;
 import main.java.ulibs.engine.input.IInputHandler;
 import main.java.ulibs.engine.input.IScrollHandler;
-import main.java.ulibs.engine.utils.ResizeHandler;
-import main.java.ulibs.engine.utils.ResizeHandlerScale;
 import main.java.ulibs.example.pong.render.BackgroundRenderer;
 import main.java.ulibs.example.pong.render.DebugHud;
 import main.java.ulibs.example.pong.render.GameRenderer;

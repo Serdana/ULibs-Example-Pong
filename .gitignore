@@ -9,6 +9,6 @@ bin
 *.lnk
 *.url
 *.factorypath
-\lib
+libs
 \build
 Logs
