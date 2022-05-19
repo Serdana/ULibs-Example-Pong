@@ -2,13 +2,13 @@ package main.java.ulibs.example.pong.render;
 
 import java.awt.Color;
 
-import main.java.ulibs.engine.init.Shaders;
-import main.java.ulibs.engine.render.IRenderer;
+import main.java.ulibs.engine.client.gl.ZConstant;
+import main.java.ulibs.engine.client.helpers.GLH;
+import main.java.ulibs.engine.client.init.Shaders;
+import main.java.ulibs.engine.client.render.IRenderer;
 import main.java.ulibs.example.pong.Main;
 import main.java.ulibs.example.pong.render.gl.FontVertexArray;
 import main.java.ulibs.example.pong.util.Fonts;
-import main.java.ulibs.gl.gl.GLH;
-import main.java.ulibs.gl.gl.ZConstant;
 
 public class DebugHud implements IRenderer {
 	private FontVertexArray fpsVA;

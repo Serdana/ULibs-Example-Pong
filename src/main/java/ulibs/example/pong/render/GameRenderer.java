@@ -2,21 +2,21 @@ package main.java.ulibs.example.pong.render;
 
 import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.math.Vec2f;
-import main.java.ulibs.engine.init.Shaders;
-import main.java.ulibs.engine.render.IRenderer;
-import main.java.ulibs.engine.utils.GetResource;
+import main.java.ulibs.engine.client.gl.Texture;
+import main.java.ulibs.engine.client.gl.VertexArray;
+import main.java.ulibs.engine.client.gl.ZConstant;
+import main.java.ulibs.engine.client.gl.geometry.Quad;
+import main.java.ulibs.engine.client.helpers.GLH;
+import main.java.ulibs.engine.client.init.Shaders;
+import main.java.ulibs.engine.client.math.Matrix4f;
+import main.java.ulibs.engine.client.render.IRenderer;
+import main.java.ulibs.engine.client.utils.GetResource;
 import main.java.ulibs.example.pong.Main;
 import main.java.ulibs.example.pong.render.gl.FontVertexArray;
 import main.java.ulibs.example.pong.util.Ball;
 import main.java.ulibs.example.pong.util.Fonts;
 import main.java.ulibs.example.pong.util.GameHandler;
 import main.java.ulibs.example.pong.util.Paddle;
-import main.java.ulibs.gl.gl.GLH;
-import main.java.ulibs.gl.gl.Texture;
-import main.java.ulibs.gl.gl.VertexArray;
-import main.java.ulibs.gl.gl.ZConstant;
-import main.java.ulibs.gl.gl.geometry.Quad;
-import main.java.ulibs.gl.math.Matrix4f;
 
 public class GameRenderer implements IRenderer {
 	private VertexArray ballVA = new VertexArray();

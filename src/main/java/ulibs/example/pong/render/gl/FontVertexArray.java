@@ -2,11 +2,11 @@ package main.java.ulibs.example.pong.render.gl;
 
 import java.awt.Font;
 
+import main.java.ulibs.engine.client.gl.Texture;
+import main.java.ulibs.engine.client.gl.VertexArray;
+import main.java.ulibs.engine.client.gl.ZConstant;
+import main.java.ulibs.engine.client.helpers.GLH;
 import main.java.ulibs.example.pong.util.Fonts;
-import main.java.ulibs.gl.gl.GLH;
-import main.java.ulibs.gl.gl.Texture;
-import main.java.ulibs.gl.gl.VertexArray;
-import main.java.ulibs.gl.gl.ZConstant;
 
 public class FontVertexArray extends VertexArray {
 	private final Texture texture;

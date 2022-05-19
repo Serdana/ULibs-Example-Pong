@@ -1,7 +1,7 @@
 package main.java.ulibs.example.pong.util;
 
-import main.java.ulibs.engine.input.EnumKeyInput;
-import main.java.ulibs.engine.input.IInputHandler;
+import main.java.ulibs.engine.client.input.EnumKeyInput;
+import main.java.ulibs.engine.client.input.IInputHandler;
 
 public class KeyHandler implements IInputHandler<EnumKeyInput> {
 	private static final boolean[] LEFT_INPUT = new boolean[] { false, false }, RIGHT_INPUT = new boolean[] { false, false };

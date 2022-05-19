@@ -2,8 +2,8 @@ package main.java.ulibs.example.pong.util;
 
 import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.math.Vec2f;
-import main.java.ulibs.engine.utils.HitBox;
-import main.java.ulibs.engine.utils.ITickable;
+import main.java.ulibs.engine.common.utils.HitBox;
+import main.java.ulibs.engine.common.utils.ITickable;
 
 public class Paddle implements ITickable {
 	public static final float SPEED = 0.1f;

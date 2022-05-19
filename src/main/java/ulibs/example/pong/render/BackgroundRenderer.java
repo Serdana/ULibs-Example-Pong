@@ -2,13 +2,13 @@ package main.java.ulibs.example.pong.render;
 
 import java.awt.Color;
 
-import main.java.ulibs.engine.ClientBase;
-import main.java.ulibs.engine.init.Shaders;
-import main.java.ulibs.engine.render.IRenderer;
-import main.java.ulibs.gl.gl.GLH;
-import main.java.ulibs.gl.gl.VertexArray;
-import main.java.ulibs.gl.gl.ZConstant;
-import main.java.ulibs.gl.gl.geometry.Quad;
+import main.java.ulibs.engine.client.ClientBase;
+import main.java.ulibs.engine.client.gl.VertexArray;
+import main.java.ulibs.engine.client.gl.ZConstant;
+import main.java.ulibs.engine.client.gl.geometry.Quad;
+import main.java.ulibs.engine.client.helpers.GLH;
+import main.java.ulibs.engine.client.init.Shaders;
+import main.java.ulibs.engine.client.render.IRenderer;
 
 public class BackgroundRenderer implements IRenderer {
 	private VertexArray bg = new VertexArray();

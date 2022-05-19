@@ -2,9 +2,9 @@ package main.java.ulibs.example.pong.util;
 
 import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.math.Vec2f;
-import main.java.ulibs.engine.utils.HitBox;
-import main.java.ulibs.engine.utils.ITickable;
-import main.java.ulibs.engine.utils.Timer.TimerType;
+import main.java.ulibs.engine.common.utils.HitBox;
+import main.java.ulibs.engine.common.utils.ITickable;
+import main.java.ulibs.engine.common.utils.Timer.TimerType;
 import main.java.ulibs.example.pong.Main;
 
 public class Ball implements ITickable {

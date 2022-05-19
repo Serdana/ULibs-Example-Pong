@@ -17,11 +17,11 @@ import java.util.Map.Entry;
 import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.utils.Console;
 import main.java.ulibs.common.utils.Console.WarningType;
+import main.java.ulibs.engine.client.gl.Texture;
+import main.java.ulibs.engine.client.gl.ZConstant;
+import main.java.ulibs.engine.client.gl.geometry.GeoData;
+import main.java.ulibs.engine.client.gl.geometry.Quad;
 import main.java.ulibs.example.pong.render.gl.FontVertexArray;
-import main.java.ulibs.gl.gl.Texture;
-import main.java.ulibs.gl.gl.ZConstant;
-import main.java.ulibs.gl.gl.geometry.GeoData;
-import main.java.ulibs.gl.gl.geometry.Quad;
 
 public class Fonts {
 	private static final Map<Font, GlyphWrapper> FONT_CHAR_MAP = new HashMap<Font, GlyphWrapper>();
