@@ -2,6 +2,7 @@ package main.java.ulibs.example.pong.render;
 
 import main.java.ulibs.common.helpers.MathH;
 import main.java.ulibs.common.math.Vec2f;
+import main.java.ulibs.engine.client.ClientBase;
 import main.java.ulibs.engine.client.gl.Texture;
 import main.java.ulibs.engine.client.gl.VertexArray;
 import main.java.ulibs.engine.client.gl.ZConstant;
@@ -11,7 +12,6 @@ import main.java.ulibs.engine.client.init.Shaders;
 import main.java.ulibs.engine.client.math.Matrix4f;
 import main.java.ulibs.engine.client.render.IRenderer;
 import main.java.ulibs.engine.client.utils.GetResource;
-import main.java.ulibs.example.pong.Main;
 import main.java.ulibs.example.pong.render.gl.FontVertexArray;
 import main.java.ulibs.example.pong.util.Ball;
 import main.java.ulibs.example.pong.util.Fonts;
@@ -46,7 +46,7 @@ public class GameRenderer implements IRenderer {
 		paddleTex = new Texture(GetResource.getTexture("paddle"));
 		
 		Fonts.bind(Fonts.FONT_16);
-		scoreVA = Fonts.getFontVertexArrayFromString("0:0", MathH.floor(Main.getDefaultWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, "0:0") / 2), 0, ZConstant.Z_HUD_DETAIL_0);
+		scoreVA = Fonts.getFontVertexArrayFromString("0:0", MathH.floor(ClientBase.getDefaultWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, "0:0") / 2), 0, ZConstant.Z_HUD_DETAIL_0);
 		scoreVA.setup();
 	}
 	
@@ -76,7 +76,7 @@ public class GameRenderer implements IRenderer {
 	
 	public static void redoScore() {
 		String score = GameHandler.getLeftScore() + ":" + GameHandler.getRightScore();
-		scoreVA.setNewValues(Fonts.FONT_16, score, MathH.floor(Main.getDefaultWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, score) / 2), 0, ZConstant.Z_HUD_DETAIL_0);
+		scoreVA.setNewValues(Fonts.FONT_16, score, MathH.floor(ClientBase.getDefaultWidth() / 2 - Fonts.getWidth(Fonts.FONT_16, score) / 2), 0, ZConstant.Z_HUD_DETAIL_0);
 		scoreVA.setup();
 	}
 	

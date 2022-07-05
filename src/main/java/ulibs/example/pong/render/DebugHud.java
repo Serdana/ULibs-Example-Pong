@@ -6,7 +6,7 @@ import main.java.ulibs.engine.client.gl.ZConstant;
 import main.java.ulibs.engine.client.helpers.GLH;
 import main.java.ulibs.engine.client.init.Shaders;
 import main.java.ulibs.engine.client.render.IRenderer;
-import main.java.ulibs.example.pong.Main;
+import main.java.ulibs.engine.common.CommonBase;
 import main.java.ulibs.example.pong.render.gl.FontVertexArray;
 import main.java.ulibs.example.pong.util.Fonts;
 
@@ -16,7 +16,7 @@ public class DebugHud implements IRenderer {
 	@Override
 	public void setupGL() {
 		Fonts.bind(Fonts.FONT_16);
-		fpsVA = Fonts.getFontVertexArrayFromString("FPS: " + Main.getFPS(), 0, 0, ZConstant.Z_HUD_TEXT);
+		fpsVA = Fonts.getFontVertexArrayFromString("FPS: " + CommonBase.getFPS(), 0, 0, ZConstant.Z_HUD_TEXT);
 		fpsVA.setup();
 	}
 	
@@ -25,7 +25,7 @@ public class DebugHud implements IRenderer {
 		Shaders.Hud().bind();
 		Shaders.Hud().setColor(Color.RED);
 		
-		fpsVA.setNewValues(Fonts.FONT_16, "FPS: " + Main.getFPS(), 0, 0, ZConstant.Z_HUD_TEXT);
+		fpsVA.setNewValues(Fonts.FONT_16, "FPS: " + CommonBase.getFPS(), 0, 0, ZConstant.Z_HUD_TEXT);
 		fpsVA.setup();
 		
 		fpsVA.bind();
